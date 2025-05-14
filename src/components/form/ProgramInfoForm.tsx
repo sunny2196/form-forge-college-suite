@@ -33,6 +33,7 @@ const ProgramInfoForm: React.FC = () => {
               <Label htmlFor="major">Intended Major</Label>
               <Select
                 value={programInfo.major}
+                name="major" // Add name attribute for Netlify form
                 onValueChange={(value) => handleSelectChange('major', value)}
               >
                 <SelectTrigger id="major">
@@ -61,6 +62,7 @@ const ProgramInfoForm: React.FC = () => {
               <Label htmlFor="minor">Intended Minor (if any)</Label>
               <Select
                 value={programInfo.minor}
+                name="minor" // Add name attribute for Netlify form
                 onValueChange={(value) => handleSelectChange('minor', value)}
               >
                 <SelectTrigger id="minor">
@@ -129,6 +131,7 @@ const ProgramInfoForm: React.FC = () => {
               <Label htmlFor="residency">Residency Status</Label>
               <Select
                 value={programInfo.residency}
+                name="residency" // Add name attribute for Netlify form
                 onValueChange={(value) => handleSelectChange('residency', value)}
               >
                 <SelectTrigger id="residency">
@@ -146,7 +149,8 @@ const ProgramInfoForm: React.FC = () => {
           {visibleFields.program.includes('financialAid') && (
             <div className="flex items-center space-x-2">
               <Checkbox 
-                id="financialAid" 
+                id="financialAid"
+                name="financialAid" // Add name attribute for Netlify form
                 checked={programInfo.financialAid}
                 onCheckedChange={(checked) => 
                   handleCheckboxChange('financialAid', checked as boolean)
@@ -161,7 +165,8 @@ const ProgramInfoForm: React.FC = () => {
           {visibleFields.program.includes('scholarship') && (
             <div className="flex items-center space-x-2">
               <Checkbox 
-                id="scholarship" 
+                id="scholarship"
+                name="scholarship" // Add name attribute for Netlify form
                 checked={programInfo.scholarship}
                 onCheckedChange={(checked) => 
                   handleCheckboxChange('scholarship', checked as boolean)
