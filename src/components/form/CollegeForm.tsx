@@ -26,9 +26,9 @@ const FormContent: React.FC = () => {
 
     // Combine all form data into one object for submission
     const formData = {
-      ...personalInfo,
-      ...educationInfo,
-      ...programInfo,
+      personalDetails: personalInfo.personalDetails,
+      educationDetails: educationInfo.educationDetails,
+      programDetails: programInfo.programDetails,
       form_name: "college_application"
     };
 
@@ -38,16 +38,7 @@ const FormContent: React.FC = () => {
       
       // Add all form fields to the FormData object
       Object.entries(formData).forEach(([key, value]) => {
-        if (Array.isArray(value)) {
-          // Handle arrays (like extracurricular activities)
-          netlifyFormData.append(key, JSON.stringify(value));
-        } else if (typeof value === 'boolean') {
-          // Handle boolean values
-          netlifyFormData.append(key, value.toString());
-        } else {
-          // Handle string and number values
-          netlifyFormData.append(key, value as string);
-        }
+        netlifyFormData.append(key, value as string);
       });
 
       // Submit the form to Netlify forms
@@ -81,36 +72,9 @@ const FormContent: React.FC = () => {
         
         {/* Add the hidden Netlify form for form detection */}
         <form name="college_application" data-netlify="true" hidden>
-          {/* Personal Info Fields */}
-          <input type="text" name="firstName" />
-          <input type="text" name="lastName" />
-          <input type="email" name="email" />
-          <input type="tel" name="phone" />
-          <input type="date" name="dob" />
-          <input type="text" name="gender" />
-          <input type="text" name="address" />
-          <input type="text" name="city" />
-          <input type="text" name="state" />
-          <input type="text" name="zip" />
-          <input type="text" name="country" />
-          
-          {/* Education Info Fields */}
-          <input type="text" name="highSchool" />
-          <input type="text" name="highSchoolGpa" />
-          <input type="text" name="graduationYear" />
-          <input type="text" name="sat" />
-          <input type="text" name="act" />
-          <input type="text" name="extracurricular" />
-          <input type="text" name="honors" />
-          
-          {/* Program Info Fields */}
-          <input type="text" name="major" />
-          <input type="text" name="minor" />
-          <input type="text" name="termApplying" />
-          <input type="text" name="yearApplying" />
-          <input type="text" name="residency" />
-          <input type="checkbox" name="financialAid" />
-          <input type="checkbox" name="scholarship" />
+          <input type="text" name="personalDetails" />
+          <input type="text" name="educationDetails" />
+          <input type="text" name="programDetails" />
           <input type="hidden" name="form-name" value="college_application" />
         </form>
         

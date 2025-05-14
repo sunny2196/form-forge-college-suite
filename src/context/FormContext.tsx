@@ -2,37 +2,15 @@
 import React, { createContext, useContext, useState } from 'react';
 
 export type PersonalInfo = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  dob: string;
-  gender: string;
-  address: string;
-  city: string;
-  state: string;
-  zip: string;
-  country: string;
+  personalDetails: string;
 };
 
 export type EducationInfo = {
-  highSchool: string;
-  highSchoolGpa: string;
-  graduationYear: string;
-  sat: string;
-  act: string;
-  extracurricular: string[];
-  honors: string[];
+  educationDetails: string;
 };
 
 export type ProgramInfo = {
-  major: string;
-  minor: string;
-  termApplying: string;
-  yearApplying: string;
-  residency: string;
-  financialAid: boolean;
-  scholarship: boolean;
+  programDetails: string;
 };
 
 export type FormState = {
@@ -64,40 +42,18 @@ const defaultFormState: FormState = {
   currentStep: 1,
   maxSteps: 3,
   personalInfo: {
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    dob: '',
-    gender: '',
-    address: '',
-    city: '',
-    state: '',
-    zip: '',
-    country: '',
+    personalDetails: '',
   },
   educationInfo: {
-    highSchool: '',
-    highSchoolGpa: '',
-    graduationYear: '',
-    sat: '',
-    act: '',
-    extracurricular: [],
-    honors: [],
+    educationDetails: '',
   },
   programInfo: {
-    major: '',
-    minor: '',
-    termApplying: '',
-    yearApplying: '',
-    residency: '',
-    financialAid: false,
-    scholarship: false,
+    programDetails: '',
   },
   visibleFields: {
-    personal: ['firstName', 'lastName', 'email', 'phone', 'dob', 'gender', 'address', 'city', 'state', 'zip', 'country'],
-    education: ['highSchool', 'highSchoolGpa', 'graduationYear', 'sat', 'act', 'extracurricular', 'honors'],
-    program: ['major', 'minor', 'termApplying', 'yearApplying', 'residency', 'financialAid', 'scholarship'],
+    personal: ['personalDetails'],
+    education: ['educationDetails'],
+    program: ['programDetails'],
   },
 };
 
